@@ -12,7 +12,6 @@ import UIKit
 import CoreMotion
 
 class ViewController: UIViewController{
-    
     let gyromotion  : AllGyromotion? = AllGyromotion()
     var gyroArray = [dataGyro]() //Gyro構造体移動
     var savegyroArray = [dataGyro]()
@@ -27,103 +26,6 @@ class ViewController: UIViewController{
     let DGZ_Format = "DGZ"
     let AoC_Format = "Amountofchange"
     
-    struct dataGyro{
-        var dGx : Float
-        var dGy : Float
-        var dGz : Float
-        init(){
-            dGx = 0.0
-            dGy = 0.0
-            dGz = 0.0
-        }
-    }
-    class AllGyromotion {
-        
-        lazy var myMotionManager = CMMotionManager()
-        //要素1:回数 要素2:x座標 要素3:y座標 要素4:z座標
-        internal var gyroArray = [dataGyro]()
-        var gyroData = dataGyro()
-        var gyromotionstopflag : Bool!
-        
-        func AllGyromotion(){
-            gyroArray.removeAll()
-            //println("Class配列初期化")
-        }
-        
-        func getGyromotion() -> [dataGyro]{
-            if myMotionManager.gyroAvailable{
-                // 更新周期を設定.
-                myMotionManager.gyroUpdateInterval = 1
-                
-                //ハンドラを設定し、加速度の取得開始
-                let queue = NSOperationQueue()
-                myMotionManager.startGyroUpdatesToQueue(queue, withHandler:
-                    {(data: CMGyroData!, error: NSError!) -> Void in
-                        /*
-                        println("X = \(data.rotationRate.x)")
-                        println("Y = \(data.rotationRate.y)")
-                        println("Z = \(data.rotationRate.z)")
-                        */
-                        self.gyroData.dGx = Float(data.rotationRate.x)
-                        self.gyroData.dGy = Float(data.rotationRate.y)
-                        self.gyroData.dGz = Float(data.rotationRate.z)
-                        self.gyroArray.append(self.gyroData)
-                })
-                if (myMotionManager.gyroActive) {
-                    println("三軸データの取得を停止")
-                    myMotionManager.stopGyroUpdates()
-                }else{
-                    println("三軸データの取得を開始")
-                }
-            }else{
-                println("ジャイロセンサーを使用できません")
-            }
-            return gyroArray
-        }
-    
-    
-    
-    }
-    class SaverConnect{
-        var json:NSData!
-        
-        func postsaverdata(DataObj : [Float], postURL : String){
-            var myDict:NSMutableDictionary = NSMutableDictionary()
-            myDict.setObject(DataObj, forKey: "GyroData")
-            
-            // 作成したdictionaryがJSONに変換可能かチェック.
-            if NSJSONSerialization.isValidJSONObject(myDict){
-                
-                // DictionaryからJSON(NSData)へ変換.
-                json = NSJSONSerialization.dataWithJSONObject(myDict, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
-                
-                // 生成したJSONデータの確認.
-                println(NSString(data: json, encoding: NSUTF8StringEncoding)!)
-                
-            }
-            // Http通信のリクエスト生成.
-            let myCofig:NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-            
-            let myUrl:NSURL = NSURL(string : postURL)!
-            
-            let myRequest:NSMutableURLRequest = NSMutableURLRequest(URL: myUrl)
-            
-            let mySession:NSURLSession = NSURLSession(configuration: myCofig)
-            
-            myRequest.HTTPMethod = "POST"
-            
-            // jsonのデータを一度文字列にして、キーと合わせる.
-            var myData:NSString = "json=\(NSString(data: json, encoding: NSUTF8StringEncoding)!)"
-            
-            // jsonデータのセット.
-            myRequest.HTTPBody = myData.dataUsingEncoding(NSUTF8StringEncoding)
-            
-            let myTask:NSURLSessionDataTask = mySession.dataTaskWithRequest(myRequest, completionHandler: { (data, response, err) -> Void in
-            })
-            
-            myTask.resume()
-        }
-    }
     @IBOutlet weak var StartButton: UIButton!
     @IBAction func StartbuttonPushed(sender:AnyObject){
         //33StartButton.setTitle("データ取得中…", forState: .Normal)

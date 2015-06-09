@@ -16,6 +16,8 @@
 		8E2C911B1B09C35200761A1E /* GyroArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C911A1B09C35200761A1E /* GyroArrayTests.swift */; };
 		8E2C91251B09C38B00761A1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2C91241B09C38B00761A1E /* UIKit.framework */; };
 		8E2C91271B09C39500761A1E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2C91261B09C39500761A1E /* CoreMotion.framework */; };
+		8E6489721B23C5700091190D /* getGyro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6489711B23C5700091190D /* getGyro.swift */; };
+		8E6489741B23C61C0091190D /* JsonSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6489731B23C61C0091190D /* JsonSaveData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,12 @@
 		8E2C911A1B09C35200761A1E /* GyroArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroArrayTests.swift; sourceTree = "<group>"; };
 		8E2C91241B09C38B00761A1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8E2C91261B09C39500761A1E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		8E6489711B23C5700091190D /* getGyro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getGyro.swift; sourceTree = "<group>"; };
+		8E6489731B23C61C0091190D /* JsonSaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSaveData.swift; sourceTree = "<group>"; };
+		8ED06F281B241DB200F448D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8ED06F2A1B241DBD00F448D2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8ED06F2C1B241DC500F448D2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8ED06F2E1B241DD600F448D2 /* libcupolicy.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcupolicy.dylib; path = usr/lib/libcupolicy.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,10 @@
 		8E2C90F31B09C35200761A1E = {
 			isa = PBXGroup;
 			children = (
+				8ED06F2E1B241DD600F448D2 /* libcupolicy.dylib */,
+				8ED06F2C1B241DC500F448D2 /* CFNetwork.framework */,
+				8ED06F2A1B241DBD00F448D2 /* Security.framework */,
+				8ED06F281B241DB200F448D2 /* Foundation.framework */,
 				8E2C91261B09C39500761A1E /* CoreMotion.framework */,
 				8E2C91241B09C38B00761A1E /* UIKit.framework */,
 				8E2C90FE1B09C35200761A1E /* GyroArray */,
@@ -94,6 +106,8 @@
 				8E2C910D1B09C35200761A1E /* LaunchScreen.xib */,
 				8E2C91031B09C35200761A1E /* GyroArray.xcdatamodeld */,
 				8E2C90FF1B09C35200761A1E /* Supporting Files */,
+				8E6489711B23C5700091190D /* getGyro.swift */,
+				8E6489731B23C61C0091190D /* JsonSaveData.swift */,
 			);
 			path = GyroArray;
 			sourceTree = "<group>";
@@ -224,8 +238,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E2C91071B09C35200761A1E /* ViewController.swift in Sources */,
+				8E6489721B23C5700091190D /* getGyro.swift in Sources */,
 				8E2C91051B09C35200761A1E /* GyroArray.xcdatamodeld in Sources */,
 				8E2C91021B09C35200761A1E /* AppDelegate.swift in Sources */,
+				8E6489741B23C61C0091190D /* JsonSaveData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +373,7 @@
 				INFOPLIST_FILE = GyroArray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -367,6 +384,7 @@
 				INFOPLIST_FILE = GyroArray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -423,6 +441,7 @@
 				8E2C91201B09C35200761A1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8E2C91211B09C35200761A1E /* Build configuration list for PBXNativeTarget "GyroArrayTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +450,7 @@
 				8E2C91231B09C35200761A1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
