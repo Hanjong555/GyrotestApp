@@ -133,16 +133,32 @@ class ViewController: UIViewController{
         ud2.setObject(DatadGx, forKey: DGX)
         ud2.setObject(DatadGy, forKey: DGY)
         ud2.setObject(DatadGz, forKey: DGZ)
+        var strDGX = [NSString]()
+        var strDGY = [NSString]()
+        var strDGZ = [NSString]()
+        var strAmo = [NSString]()
         ud2.setObject(AmountofChange, forKey: AoC)
+        for(var i = 0 ; i < gyroArray.count ; i++){
+            strDGX += [NSString(format:"%01.6f",DatadGx[i])]
+            strDGY += [NSString(format:"%01.6f",DatadGy[i])]
+            strDGZ += [NSString(format:"%01.6f",DatadGz[i])]
+            if(i > 0){
+                strAmo += [NSString(format:"%01.6f",AmountofChange[i-1])]
+            }
+        }
         println(Dataday!)
         println(DGX)
-        println(DatadGx)
+        println(strDGX)
+        //println(DatadGx)
         println(DGY)
-        println(DatadGy)
+        println(strDGY)
+        //println(DatadGy)
         println(DGZ)
-        println(DatadGz)
+        println(strDGZ)
+        //println(DatadGz)
         println(AoC)
-        println(AmountofChange)
+        println(strAmo)
+        //println(AmountofChange)
         DatadGx.removeAll()
         DatadGy.removeAll()
         DatadGz.removeAll()
