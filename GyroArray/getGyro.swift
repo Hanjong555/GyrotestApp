@@ -5,6 +5,7 @@
 //  Created by SatanSatoh on 2015/06/07.
 //  Copyright (c) 2015年 mycompany. All rights reserved.
 //
+//(|X[(n-1)] - X[n]| + |Y[(n-1)] - Y[n]| + |Z[(n-1)] - Z[n]|)
 
 import Foundation
 import UIKit
@@ -14,11 +15,13 @@ struct dataGyro{
     var dGx : Float
     var dGy : Float
     var dGz : Float
+    var Amount : Float
     internal var NEGAERI : Float
     init(){
         dGx = 0.0
         dGy = 0.0
         dGz = 0.0
+        Amount = 0.0
         NEGAERI = 0.0
     }
 }
@@ -31,6 +34,7 @@ class AllGyromotion : NSObject{
     //要素1:回数 要素2:x座標 要素3:y座標 要素4:z座標
     internal var gyroArray = [dataGyro]()
     var gyroData = dataGyro()
+    var SendHTTP = HTTPControl( tryURL: "https://awake-test.herokuapp.com/static_pages/about/",ToRequestMethod: "GET" )
     var gyromotionstopflag : Bool!
     //var count : Int = 0
     
@@ -58,7 +62,18 @@ class AllGyromotion : NSObject{
                     self.gyroData.dGz = Float(data.rotationRate.z)
                     //寝返りチェッカー
                     self.NEGAERI()
-                    self.gyroArray.append(self.gyroData)
+                    //変化量の抽出
+                    if(!self.gyroArray.isEmpty){
+                        
+                        self.gyroData.Amount = fabs(self.gyroArray[self.gyroArray.count - 1].dGx - self.gyroData.dGx) + fabs(self.gyroArray[self.gyroArray.count - 1].dGy - self.gyroData.dGy) - fabs(self.gyroArray[self.gyroArray.count - 1].dGz - self.gyroData.dGz)
+                        
+                        self.SendHTTP.makeDataHTTP(30, dataID: 1, data: self.gyroData.Amount)
+                        self.SendHTTP.HTTPCheck()
+                        
+                        self.gyroArray.append(self.gyroData)
+                    }else{
+                        self.gyroArray.append(self.gyroData)
+                    }
                     //self.count = self.count + 1
                     
             })

@@ -36,8 +36,8 @@ class ViewController: UIViewController{
     @IBOutlet weak var StartButton: UIButton!
     @IBAction func StartbuttonPushed(sender:AnyObject){
         //33StartButton.setTitle("データ取得中…", forState: .Normal)
-        //gyroArray = gyromotion!.getGyromotion()
-        acceleArray = accelemotion!.getAcclemotion()
+        gyroArray = gyromotion!.getGyromotion()
+        //acceleArray = accelemotion!.getAcclemotion()
     }
     
     @IBOutlet weak var StopGyro: UIButton!
