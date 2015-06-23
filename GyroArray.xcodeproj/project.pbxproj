@@ -18,7 +18,8 @@
 		8E2C91271B09C39500761A1E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2C91261B09C39500761A1E /* CoreMotion.framework */; };
 		8E6489721B23C5700091190D /* getGyro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6489711B23C5700091190D /* getGyro.swift */; };
 		8E6489741B23C61C0091190D /* JsonSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6489731B23C61C0091190D /* JsonSaveData.swift */; };
-		8E7308EA1B2BD274001861E9 /* Wake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7308E91B2BD274001861E9 /* Wake.swift */; };
+		8E740BD31B37A54200A6CBDD /* getAcceleromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E740BD21B37A54200A6CBDD /* getAcceleromotion.swift */; };
+		8EA19C671B30787F004A3794 /* SaveDataAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA19C661B30787F004A3794 /* SaveDataAll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		8E2C90FC1B09C35200761A1E /* GyroArray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyroArray.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E2C91001B09C35200761A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E2C91011B09C35200761A1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E2C91041B09C35200761A1E /* GyroArray.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GyroArray.xcdatamodel; sourceTree = "<group>"; };
 		8E2C91061B09C35200761A1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +47,8 @@
 		8E2C91261B09C39500761A1E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		8E6489711B23C5700091190D /* getGyro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getGyro.swift; sourceTree = "<group>"; };
 		8E6489731B23C61C0091190D /* JsonSaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSaveData.swift; sourceTree = "<group>"; };
-		8E7308E91B2BD274001861E9 /* Wake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wake.swift; sourceTree = "<group>"; };
+		8E740BD21B37A54200A6CBDD /* getAcceleromotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getAcceleromotion.swift; sourceTree = "<group>"; };
+		8EA19C661B30787F004A3794 /* SaveDataAll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveDataAll.swift; sourceTree = "<group>"; };
 		8ED06F281B241DB200F448D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8ED06F2A1B241DBD00F448D2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8ED06F2C1B241DC500F448D2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -110,6 +111,8 @@
 				8E2C90FF1B09C35200761A1E /* Supporting Files */,
 				8E6489711B23C5700091190D /* getGyro.swift */,
 				8E6489731B23C61C0091190D /* JsonSaveData.swift */,
+				8EA19C661B30787F004A3794 /* SaveDataAll.swift */,
+				8E740BD21B37A54200A6CBDD /* getAcceleromotion.swift */,
 			);
 			path = GyroArray;
 			sourceTree = "<group>";
@@ -117,8 +120,6 @@
 		8E2C90FF1B09C35200761A1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8E2C91001B09C35200761A1E /* Info.plist */,
-				8E7308E91B2BD274001861E9 /* Wake.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,10 +242,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E2C91071B09C35200761A1E /* ViewController.swift in Sources */,
-				8E7308EA1B2BD274001861E9 /* Wake.swift in Sources */,
 				8E6489721B23C5700091190D /* getGyro.swift in Sources */,
+				8EA19C671B30787F004A3794 /* SaveDataAll.swift in Sources */,
 				8E2C91051B09C35200761A1E /* GyroArray.xcdatamodeld in Sources */,
 				8E2C91021B09C35200761A1E /* AppDelegate.swift in Sources */,
+				8E740BD31B37A54200A6CBDD /* getAcceleromotion.swift in Sources */,
 				8E6489741B23C61C0091190D /* JsonSaveData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

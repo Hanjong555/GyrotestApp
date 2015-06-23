@@ -10,45 +10,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GyroArray/ViewController.swift"
-            timestampString = "455556964.39839"
+            timestampString = "456636011.173038"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "put()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GyroArray/getGyro.swift"
+            timestampString = "456636011.173038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "display()"
+            landmarkName = "getGyromotion()"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GyroArray/ViewController.swift"
-            timestampString = "455556964.39839"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "put()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GyroArray/ViewController.swift"
-            timestampString = "455556964.39839"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "put()"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GyroArray.AllGyromotion.getGyromotion (GyroArray.AllGyromotion)() -&gt; Swift.Array&lt;GyroArray.dataGyro&gt;"
+                  moduleName = "GyroArray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Satan/Documents/Practice/GyroArray/GyroArray/getGyro.swift"
+                  timestampString = "456636230.567122"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "480">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GyroArray.AllGyromotion.(getGyromotion (GyroArray.AllGyromotion) -&gt; () -&gt; Swift.Array&lt;GyroArray.dataGyro&gt;).(closure #1)"
+                  moduleName = "GyroArray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Satan/Documents/Practice/GyroArray/GyroArray/getGyro.swift"
+                  timestampString = "456636230.56761"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "1260">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

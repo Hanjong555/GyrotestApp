@@ -14,15 +14,17 @@ struct dataGyro{
     var dGx : Float
     var dGy : Float
     var dGz : Float
+    internal var NEGAERI : Float
     init(){
         dGx = 0.0
         dGy = 0.0
         dGz = 0.0
+        NEGAERI = 0.0
     }
 }
 
-
-@objc class AllGyromotion : NSObject{
+@objc
+class AllGyromotion : NSObject{
     
     let myDevice : UIDevice = UIDevice.currentDevice()
     lazy var myMotionManager = CMMotionManager()
@@ -30,6 +32,7 @@ struct dataGyro{
     internal var gyroArray = [dataGyro]()
     var gyroData = dataGyro()
     var gyromotionstopflag : Bool!
+    //var count : Int = 0
     
     func AllGyromotion(){
         gyroArray.removeAll()
@@ -53,9 +56,14 @@ struct dataGyro{
                     self.gyroData.dGx = Float(data.rotationRate.x)
                     self.gyroData.dGy = Float(data.rotationRate.y)
                     self.gyroData.dGz = Float(data.rotationRate.z)
+                    //寝返りチェッカー
+                    self.NEGAERI()
                     self.gyroArray.append(self.gyroData)
+                    //self.count = self.count + 1
+                    
             })
-            if (myMotionManager.gyroActive) {
+            //if (myMotionManager.gyroActive || count <= 60) {
+            if ( myMotionManager.gyroActive ) {
                 println("三軸データの取得を停止")
                 //近接センサーのOFF
                 myDevice.proximityMonitoringEnabled = false
@@ -76,6 +84,13 @@ struct dataGyro{
             println("ジャイロセンサーを使用できません")
         }
         return gyroArray
+    }
+    
+    //寝返りチェッカー
+    func NEGAERI(){
+        //if(){
+            self.gyroData.NEGAERI = 1.0
+        //}
     }
     
     func proximitySensorStateDidChange(noification:NSNotification){
