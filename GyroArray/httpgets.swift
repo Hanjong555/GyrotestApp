@@ -21,16 +21,17 @@ class HTTPControl{
         addURL = ""
     }
     
-    func formatHTTP(){
-        request = NSMutableURLRequest(URL: NSURL(string: addURL)!)
-        request.HTTPMethod = RequestMethod
-    }
-    
     func makeDataHTTP(userID:Int ,dataID : Int, data : Float){
         var Amount = String(stringInterpolationSegment: data)
         Amount = Amount.stringByReplacingOccurrencesOfString(".", withString: "_", options: nil, range: nil)
         addURL = urlString + "/" + String(userID) + "/" + String(dataID) + "/" + Amount
         formatHTTP()
+    }
+    
+    
+    func formatHTTP(){
+        request = NSMutableURLRequest(URL: NSURL(string: addURL)!)
+        request.HTTPMethod = RequestMethod
     }
     
     func HTTPCheck(){

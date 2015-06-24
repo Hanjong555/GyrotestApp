@@ -12,39 +12,45 @@ import UIKit
 import CoreMotion
 
 class ViewController: UIViewController{
-    let gyromotion  : AllGyromotion? = AllGyromotion()
-    let accelemotion : AllAcclemotion? = AllAcclemotion()
+    let CatchSensor : AllMotionSensor = AllMotionSensor()
     var gyroArray = [dataGyro]() //Gyro構造体移動
     var acceleArray = [dataAccele]() //加速度構造体移動
     var savegyroArray = [dataGyro]()
     var Dataday : String?   //同
     var Datadays = [String]()
-    var DGX : String = "DGX"    //保存キー
-    var DGY : String = "DGY"    //保存キー
-    var DGZ : String = "DGZ"    //保存キー
     
-    var DAX : String = "DAX"    //保存キー
-    var DAY : String = "DAY"    //保存キー
-    var DAZ : String = "DAZ"    //保存キー
-    
-    var AoC : String = "Amountofchange"
-    let DGX_Format = "DGX"
-    let DGY_Format = "DGY"
-    let DGZ_Format = "DGZ"
-    let AoC_Format = "Amountofchange"
+//保存キー系
+    //Gyro
+    var DGX : String = " DGX"    //保存キー
+    var DGY : String = " DGY"    //保存キー
+    var DGZ : String = " DGZ"    //保存キー
+    var GyroAoC : String = " GyroAmountofchange"
+    //GyroFormat
+    let DGX_Format = " DGX"
+    let DGY_Format = " DGY"
+    let DGZ_Format = " DGZ"
+    let GyroAoC_Format = " GyroAmountofchange"
+    //Accele
+    var DAX : String = " DAX"    //保存キー
+    var DAY : String = " DAY"    //保存キー
+    var DAZ : String = " DAZ"    //保存キー
+    var AcceleAoC : String = " AcceleAmoutofchange"
+    //AcceleFormat
+    let DAX_Format = " DAX"
+    let DAY_Format = " DAY"
+    let DAZ_Format = " DAZ"
+    let AcceleAoC_Format = " AcceleAmountofchange"
     
     @IBOutlet weak var StartButton: UIButton!
     @IBAction func StartbuttonPushed(sender:AnyObject){
-        //33StartButton.setTitle("データ取得中…", forState: .Normal)
-        gyroArray = gyromotion!.getGyromotion()
-        //acceleArray = accelemotion!.getAcclemotion()
+        gyroArray = CatchSensor.getGyromotion()
+        acceleArray = CatchSensor.getAccelemotion()
     }
     
     @IBOutlet weak var StopGyro: UIButton!
     @IBAction func StopbuttonPushed(sender:AnyObject){
     
     }
-    
     
     @IBOutlet weak var ReadDataButton: UIButton!
     @IBAction func display() {
@@ -101,17 +107,18 @@ class ViewController: UIViewController{
         var DatadGx = [Float]() //データを書き込むための配列・取り出すための配列
         var DatadGy = [Float]() //同
         var DatadGz = [Float]() //同
-        var AmountofChange = [Float]()
+        var GyroAmountofChange = [Float]()
         var result : Float
         //Accele系
         var DatadAx = [Float]() //データを書き込むための配列・取り出すための配列
         var DatadAy = [Float]() //同
         var DatadAz = [Float]() //同
+        var AcceleAmountofChange = [Float]()
         
         DGX = DGX_Format
         DGY = DGY_Format
         DGZ = DGZ_Format
-        AoC = AoC_Format
+        GyroAoC = GyroAoC_Format
         
         let dateFormatter = NSDateFormatter()// フォーマットの取得
         dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")  // JPロケール
@@ -131,19 +138,28 @@ class ViewController: UIViewController{
             DatadGz += [gyroArray[i].dGz]
             if(i > 0){
                 result = fabs(gyroArray[i].dGx - gyroArray[i-1].dGx) + fabs(gyroArray[i].dGy - gyroArray[i-1].dGy) + fabs(gyroArray[i].dGz - gyroArray[i-1].dGz)
-                AmountofChange += [result]
+                GyroAmountofChange += [result]
             }
         }
+        DGX = Dataday! + DGX
+        DGY = Dataday! + DGY
+        DGZ = Dataday! + DGZ
+        GyroAoC = Dataday! + GyroAoC
         
         for(var i = 0; i < acceleArray.count ; i++){
             DatadAx += [acceleArray[i].dAx]
             DatadAy += [acceleArray[i].dAy]
             DatadAz += [acceleArray[i].dAz]
+            if(i > 0){
+                result = fabs(acceleArray[i].dAx - acceleArray[i-1].dAx) + fabs(acceleArray[i].dAy - acceleArray[i-1].dAx) + fabs(acceleArray[i].dAz - acceleArray[i-1].dAx)
+                AcceleAmountofChange += [result]
+            }
         }
-        DGX = Dataday! + DGX
-        DGY = Dataday! + DGY
-        DGZ = Dataday! + DGZ
-        AoC = Dataday! + AoC
+        
+        DAX = Dataday! + DAX
+        DAY = Dataday! + DAY
+        DAZ = Dataday! + DAZ
+        AcceleAoC = Dataday! + AcceleAoC
         
         Datadays.append(Dataday!)
         
@@ -151,28 +167,21 @@ class ViewController: UIViewController{
         ud2.setObject(DatadGx, forKey: DGX)
         ud2.setObject(DatadGy, forKey: DGY)
         ud2.setObject(DatadGz, forKey: DGZ)
+        
         var strDGX = [NSString]()
         var strDGY = [NSString]()
         var strDGZ = [NSString]()
-        var strAmo = [NSString]()
+        var strGyroAmo = [NSString]()
         
-        var strDAX = [NSString]()
-        var strDAY = [NSString]()
-        var strDAZ = [NSString]()
+        ud2.setObject(GyroAmountofChange, forKey: GyroAoC)
         
-        ud2.setObject(AmountofChange, forKey: AoC)
         for(var i = 0 ; i < gyroArray.count ; i++){
             strDGX += [NSString(format:"%01.6f",DatadGx[i])]
             strDGY += [NSString(format:"%01.6f",DatadGy[i])]
             strDGZ += [NSString(format:"%01.6f",DatadGz[i])]
             if(i > 0){
-                strAmo += [NSString(format:"%01.6f",AmountofChange[i-1])]
+                strGyroAmo += [NSString(format:"%01.6f",GyroAmountofChange[i-1])]
             }
-        }
-        for(var i = 0 ; i < acceleArray.count ; i++){
-            strDAX += [NSString(format:"%01.6f",DatadAx[i])]
-            strDAY += [NSString(format:"%01.6f",DatadAy[i])]
-            strDAZ += [NSString(format:"%01.6f",DatadAz[i])]
         }
         println(Dataday!)
         println(DGX)
@@ -184,21 +193,40 @@ class ViewController: UIViewController{
         println(DGZ)
         println(strDGZ)
         //println(DatadGz)
-        println(AoC)
-        println(strAmo)
+        println(GyroAoC)
+        println(strGyroAmo)
         
+        var strDAX = [NSString]()
+        var strDAY = [NSString]()
+        var strDAZ = [NSString]()
+        var strAcceleAmo = [NSString]()
+        
+        for(var i = 0 ; i < acceleArray.count ; i++){
+            strDAX += [NSString(format:"%01.6f",DatadAx[i])]
+            strDAY += [NSString(format:"%01.6f",DatadAy[i])]
+            strDAZ += [NSString(format:"%01.6f",DatadAz[i])]
+            if(i > 0){
+                strAcceleAmo += [NSString(format:"%01.6f",AcceleAmountofChange[i-1])]
+            }
+        }
         println(DAX)
         println(strDAX)
         println(DAY)
         println(strDAY)
         println(DAZ)
         println(strDAZ)
+        println(AcceleAoC)
+        println(strAcceleAmo)
         //println(AmountofChange)
         DatadGx.removeAll()
         DatadGy.removeAll()
         DatadGz.removeAll()
-        AmountofChange.removeAll()
-        gyromotion?.AllGyromotion()
+        GyroAmountofChange.removeAll()
+        DatadAx.removeAll()
+        DatadAy.removeAll()
+        DatadAz.removeAll()
+        AcceleAmountofChange.removeAll()
+        CatchSensor.FormatMotion()
         //println("配列の初期化")
         ud2.synchronize()
         //println("保存完了")

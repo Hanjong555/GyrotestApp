@@ -16,9 +16,8 @@
 		8E2C911B1B09C35200761A1E /* GyroArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C911A1B09C35200761A1E /* GyroArrayTests.swift */; };
 		8E2C91251B09C38B00761A1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2C91241B09C38B00761A1E /* UIKit.framework */; };
 		8E2C91271B09C39500761A1E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2C91261B09C39500761A1E /* CoreMotion.framework */; };
-		8E6489721B23C5700091190D /* getGyro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6489711B23C5700091190D /* getGyro.swift */; };
+		8E6489721B23C5700091190D /* getMotionSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6489711B23C5700091190D /* getMotionSensor.swift */; };
 		8E6489741B23C61C0091190D /* JsonSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6489731B23C61C0091190D /* JsonSaveData.swift */; };
-		8E740BD31B37A54200A6CBDD /* getAcceleromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E740BD21B37A54200A6CBDD /* getAcceleromotion.swift */; };
 		8EA19C671B30787F004A3794 /* SaveDataAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA19C661B30787F004A3794 /* SaveDataAll.swift */; };
 		8EAFA7701B392357005FCCD8 /* httpgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFA76F1B392357005FCCD8 /* httpgets.swift */; };
 /* End PBXBuildFile section */
@@ -46,9 +45,8 @@
 		8E2C911A1B09C35200761A1E /* GyroArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyroArrayTests.swift; sourceTree = "<group>"; };
 		8E2C91241B09C38B00761A1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8E2C91261B09C39500761A1E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		8E6489711B23C5700091190D /* getGyro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getGyro.swift; sourceTree = "<group>"; };
+		8E6489711B23C5700091190D /* getMotionSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getMotionSensor.swift; sourceTree = "<group>"; };
 		8E6489731B23C61C0091190D /* JsonSaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSaveData.swift; sourceTree = "<group>"; };
-		8E740BD21B37A54200A6CBDD /* getAcceleromotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getAcceleromotion.swift; sourceTree = "<group>"; };
 		8EA19C661B30787F004A3794 /* SaveDataAll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveDataAll.swift; sourceTree = "<group>"; };
 		8EAFA76F1B392357005FCCD8 /* httpgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpgets.swift; sourceTree = "<group>"; };
 		8ED06F281B241DB200F448D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -111,11 +109,10 @@
 				8E2C910D1B09C35200761A1E /* LaunchScreen.xib */,
 				8E2C91031B09C35200761A1E /* GyroArray.xcdatamodeld */,
 				8E2C90FF1B09C35200761A1E /* Supporting Files */,
-				8E6489711B23C5700091190D /* getGyro.swift */,
+				8E6489711B23C5700091190D /* getMotionSensor.swift */,
 				8EAFA76F1B392357005FCCD8 /* httpgets.swift */,
 				8E6489731B23C61C0091190D /* JsonSaveData.swift */,
 				8EA19C661B30787F004A3794 /* SaveDataAll.swift */,
-				8E740BD21B37A54200A6CBDD /* getAcceleromotion.swift */,
 			);
 			path = GyroArray;
 			sourceTree = "<group>";
@@ -245,12 +242,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E2C91071B09C35200761A1E /* ViewController.swift in Sources */,
-				8E6489721B23C5700091190D /* getGyro.swift in Sources */,
+				8E6489721B23C5700091190D /* getMotionSensor.swift in Sources */,
 				8EA19C671B30787F004A3794 /* SaveDataAll.swift in Sources */,
 				8E2C91051B09C35200761A1E /* GyroArray.xcdatamodeld in Sources */,
 				8EAFA7701B392357005FCCD8 /* httpgets.swift in Sources */,
 				8E2C91021B09C35200761A1E /* AppDelegate.swift in Sources */,
-				8E740BD31B37A54200A6CBDD /* getAcceleromotion.swift in Sources */,
 				8E6489741B23C61C0091190D /* JsonSaveData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
